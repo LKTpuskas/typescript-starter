@@ -1,0 +1,36 @@
+{
+  "root": true,
+  "extends": [
+    "@strata",
+    "@strata/eslint-config/jest",
+    // Turn off conflicting rules
+    "prettier/@typescript-eslint",
+    "prettier/react",
+    "prettier"
+  ],
+  "overrides": [
+    {
+      "extends": "@strata/eslint-config/node",
+      "files": [
+        "babel.config.js",
+        "jest.config.js",
+        "webpack.config.js",
+        "cypress/{plugins,support}/*.js"
+      ]
+    },
+    {
+      "files": ["*.mjs"],
+      "rules": {
+        "no-console": 0
+      }
+    },
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "rules": {
+        "@typescript-eslint/no-extra-parens": 0,
+        "@typescript-eslint/indent": 0,
+        "@typescript-eslint/space-before-function-paren": 0
+      }
+    }
+  ]
+}
